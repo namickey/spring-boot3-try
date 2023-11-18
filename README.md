@@ -1,6 +1,6 @@
 # spring-boot3-try
 
-> [!NOTE]
+> [!NOTE] バージョンアップ
 > ## 参考：バージョンアップ
 > 
 > Spring Boot 3の新機能を使ってみよう！ 2からアップグレードする手順、Observability機能、ネイティブイメージ化  
