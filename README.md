@@ -153,34 +153,32 @@ mvnw.cmd spring-boot:run
 ## ブラウザアクセス
 http://localhost:8080/
 
-* TOP画面でitem一覧を表示する  
+機能一覧
+* メニュー画面でitem一覧を表示する  
 * 登録画面でitemを登録する  
 
 ## 停止
 ```
-コマンドプロンプトで実行
+起動中のコマンドプロンプトで、以下を実行
 Ctrl + C
 ```
 
 ## やってみよう 
 
 1. `Spring Initializr`から初期構成のアプリケーションをダウンロードする  
-
 https://start.spring.io/
 ![initializr](initializr.png)
- 
+
 2. 統合開発環境を使って、今動かしたソースコードと同じものを実装し、動作確認する
- 
 > [!NOTE]
 > 統合開発環境（vscode、eclipse、intelliJ）を使おう  
 >   * vscode：おススメ、最新、軽量  
 >   * eclipse：古き重き友人  
 >   * intelliJ：おススメだが、`spring-boot-devtools`の自動デプロイ機能と相性が悪い。intelliJは入力する度にファイル保存されてしまうから。  
- 
+
 3. 自分のgithubアカウントを作って、作ったソースを公開しよう
 
 4. githubでgitフローを使って開発しよう
-
 > [!NOTE]
 > ## 必ず使う`Gitフロー`を覚えよう
 > 
@@ -189,6 +187,8 @@ https://start.spring.io/
 > 
 > Git-flow ～Gitのブランチモデルを知る～  
 > https://tracpath.com/bootcamp/learning_git_git_flow.html  
+
+## 参考
 
 > [!NOTE]
 > ## 必ず使う`Maven`を覚えよう
