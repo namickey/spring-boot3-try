@@ -191,6 +191,15 @@ https://start.spring.io/
 ## 参考
 
 > [!NOTE]
+> ## 要件定義に関する良記事
+> 
+> 要件定義・プロジェクト企画に必要なネゴシエーションをロジカルに学ぶ記事  
+> https://qiita.com/Saku731/items/c43137a6f4bf7166490a  
+> 
+> 要件定義～システム設計ができる人材になれる記事  
+> https://qiita.com/Saku731/items/741fcf0f40dd989ee4f8  
+
+> [!NOTE]
 > ## 必ず使う`Maven`を覚えよう
 > 
 > Mavenとは何ぞや  
