@@ -162,6 +162,46 @@ http://localhost:8080/
 Ctrl + C
 ```
 
+## やってみよう 
+
+1. `Spring Initializr`から初期構成のアプリケーションをダウンロードする  
+
+https://start.spring.io/
+![initializr](initializr.png)
+ 
+2. 統合開発環境を使って、今動かしたソースコードと同じものを実装し、動作確認する
+ 
+> [!NOTE]
+> 統合開発環境（vscode、eclipse、intelliJ）を使おう  
+>   * vscode：おススメ、最新、軽量  
+>   * eclipse：古き重き友人  
+>   * intelliJ：おススメだが、`spring-boot-devtools`の自動デプロイ機能と相性が悪い。intelliJは入力する度にファイル保存されてしまうから。  
+ 
+3. 自分のgithubアカウントを作って、作ったソースを公開しよう
+
+4. githubでgitフローを使って開発しよう
+
+> [!NOTE]
+> ## 必ず使う`Gitフロー`を覚えよう
+> 
+> 【図解】git-flow、GitHub Flowを開発現場で使い始めるためにこれだけは覚えておこう  
+> https://atmarkit.itmedia.co.jp/ait/articles/1708/01/news015.html  
+> 
+> Git-flow ～Gitのブランチモデルを知る～  
+> https://tracpath.com/bootcamp/learning_git_git_flow.html  
+
+> [!NOTE]
+> ## 必ず使う`Maven`を覚えよう
+> 
+> Mavenとは何ぞや  
+> https://qiita.com/ASHITSUBO/items/6c2aa8dd55043781c6b4  
+> 
+> Mavenキホンのキ  
+> https://tech-lab.sios.jp/archives/25867  
+> 
+> Mavenの基本勉強メモ  
+> https://qiita.com/opengl-8080/items/bb32732f9aa5cb3495d2  
+
 > [!NOTE]
 > ## SpringBootバージョンアップ2系⇒3系
 > 
