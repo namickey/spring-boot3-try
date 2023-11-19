@@ -7,12 +7,12 @@ Spring-Bootで効率的なアプリケーション開発
 * Spring-Bootを使った効率的な開発を行い、最低限必要な手順でアプリケーションを起動する
 * JAVAだけがインストールされたマシンで、アプリケーションを起動する
 * 起動時に自動でテーブルをcreateし、データをinsertしてから、アプリケーションが起動する
-* ORマッパーはMyBatisを使う
-* setter,getterは実装せず、lombokで生成する
+* ORマッパーは`MyBatis`を使う
+* setter,getterは実装せず、`lombok`で生成する
 * データ登録画面では、二重サブミット対策としてPRGパターンを使う
-* アプリケーション開発は、Spring Initializrからデモアプリケーションをダウンロードして始める
-* Mavenを使ったライブラリ管理（自動でjarをダウンロードして、クラスパスを通してくれる）
-* spring-boot-devtoolsで、アプリ起動中にソースコードを修正して保存するだけで、自動的にビルドと再起動が行われ、アプリケーションに即時反映される
+* アプリケーション開発は、`Spring Initializr`からデモアプリケーションをダウンロードして始める
+* `Maven`を使ったライブラリ管理（自動でjarをダウンロードして、クラスパスを通してくれる）
+* `spring-boot-devtools`で、アプリ起動中にソースコードを修正して保存するだけで、自動的にビルドと再起動が行われ、アプリケーションに即時反映される
 
 > [!TIP]
 > さいきょうの二重サブミット対策  
@@ -20,6 +20,147 @@ Spring-Bootで効率的なアプリケーション開発
 > 
 > 【Java】Lombokで冗長コードを削減しよう  
 > https://www.casleyconsulting.co.jp/blog/engineer/107/ 
+
+## Spring-Bootとは
+
+- 設定ファイルレス  
+  Spring-WEB-MVCに対して、あらかじめ様々な設定が設定済みとなっているため、自分で設定ファイルを書く量が少ない
+
+- 簡単起動  
+  組み込みTomcatを使用するため、Tomcatのインストールが不要
+
+- 素早く開始  
+  `Spring Initializr`を使って必要なライブラリが組み込まれた初期構成のアプリケーションをダウンロードできる
+
+- 短所としては、ライフサイクルが比較的短い  
+  https://spring.pleiades.io/projects/spring-boot#support
+
+## 前提環境
+
+以下がインストール済みであること
+* JDK 17
+* git
+
+> [!TIP]
+> Java環境構築(Windows版)　JDKインストール  
+> https://www.techfun.co.jp/services/magazine/java/windows-jdk-install.html  
+> 
+> Java環境構築(Windows版)　パスの設定  
+> https://www.techfun.co.jp/services/magazine/java/windows-jdk-pathset.html  
+> 
+> Git Bashって使ってる？Windowsで動く意外にすごい便利ツール  
+> https://www.sejuku.net/blog/72673  
+
+## 使用するフレームワーク
+
+* spring-boot3.1
+* spring-boot-starter-web
+* spring-boot-devtools
+* thymeleaf
+* mybatis
+* lombok
+* 組み込みh2データベース
+* 組み込みTomcat 10
+* 組み込みMaven 3
+
+## ディレクトリ階層
+
+今回、起動するアプリケーションのディレクトリ階層
+```
+C:.
+│  .gitignore
+│  mvnw
+│  mvnw.cmd
+│  pom.xml
+│  README.md
+├─.mvn
+│  └─wrapper
+│          maven-wrapper.jar
+│          maven-wrapper.properties
+└─src
+    ├─main
+    │  ├─java
+    │  │  └─com
+    │  │      └─example
+    │  │          └─demo
+    │  │              │  DemoApplication.java
+    │  │              ├─entity
+    │  │              │      Item.java
+    │  │              │      ItemMapper.java
+    │  │              └─web
+    │  │                  ├─master
+    │  │                  │  └─item
+    │  │                  │          ItemForm.java
+    │  │                  │          ItemRegistService.java
+    │  │                  │          RegistController.java
+    │  │                  └─menu
+    │  │                          ItemFindService.java
+    │  │                          MenuController.java
+    │  └─resources
+    │      │  application.properties
+    │      │  data-all.sql
+    │      │  schema-all.sql
+    │      ├─static
+    │      └─templates
+    │          │  menu.html
+    │          └─master
+    │              └─item
+    │                      complete.html
+    │                      confirm.html
+    │                      index.html
+```
+
+## アプリケーションの構造
+
+![アプリケーションの構造](app.png)
+
+* Formクラスは画面層で使用するクラス。データベース層ではFormクラスの使用は禁止。しっかりレイヤーを分ける。
+* Entityクラスはデータベース層で使用するクラス
+* 画面層ではEntityクラスは使用しないが、表示用には使用しても良い。Formという役割でEntityを使うことはダメ。
+* コントローラ⇒サービス⇒マッパーのレイヤーを守って実装する。
+* コントローラ⇒マッパーというようなメソッド呼び出しは禁止。しっかりレイヤーを守る。
+
+## 準備 githubからソースコードを取得
+
+gitを使ってソースコードをダウンロードする
+```
+コマンドプロンプトで実行
+git clone https://github.com/namickey/spring-boot3-try.git
+cd spring-boot3-try
+```
+
+> [!TIP]
+> ハンズオンで学ぶGit  
+> https://qiita.com/kanekanekaneko/items/c55bf4fc74babf23bbfa  
+> 
+> 【Windowsでgitを使おう！】導入方法とはじめにすべき設定まとめ | 侍エンジニアブログ (sejuku.net)  
+> https://www.sejuku.net/blog/77097  
+> 
+> GitやGitHubでSSHに接続する方法をわかりやすく解説！ | 侍エンジニアブログ (sejuku.net)  
+> https://www.sejuku.net/blog/74220  
+
+## 実行 spring-boot:run
+
+起動する
+```
+コマンドプロンプトで実行
+mvnw.cmd spring-boot:run
+
+「mvn」や「mvnw.cmd」はmavenのコマンドで、pom.xmlに記載されたライブラリ管理（自動的にクラスパス追加）
+初回はライブラリのダウンロードに多少時間がかかった後に、起動する
+```
+
+## ブラウザアクセス
+http://localhost:8080/
+
+* TOP画面でitem一覧を表示する  
+* 登録画面でitemを登録する  
+
+## 停止
+```
+コマンドプロンプトで実行
+Ctrl + C
+```
 
 > [!NOTE]
 > ## SpringBootバージョンアップ2系⇒3系
