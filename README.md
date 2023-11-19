@@ -170,7 +170,7 @@ https://start.spring.io/
 ![initializr](initializr.png)
 
 2. 統合開発環境を使って、今動かしたソースコードと同じものを実装し、動作確認する
-> [!NOTE]
+> [!TIP]
 > 統合開発環境（vscode、eclipse、intelliJ）を使おう  
 >   * vscode：おススメ、最新、軽量  
 >   * eclipse：古き重き友人  
@@ -179,7 +179,7 @@ https://start.spring.io/
 3. 自分のgithubアカウントを作って、作ったソースを公開しよう
 
 4. githubでgitフローを使って開発しよう
-> [!NOTE]
+> [!TIP]
 > ## 必ず使う`Gitフロー`を覚えよう
 > 
 > 【図解】git-flow、GitHub Flowを開発現場で使い始めるためにこれだけは覚えておこう  
