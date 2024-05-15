@@ -53,7 +53,7 @@ Spring-Bootで効率的なアプリケーション開発
 
 ## 使用するフレームワーク
 
-* spring-boot3.1
+* spring-boot3.2
 * spring-boot-starter-web
 * spring-boot-devtools
 * thymeleaf
