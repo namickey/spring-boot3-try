@@ -39,6 +39,7 @@ Spring-Bootで効率的なアプリケーション開発
 
 以下がインストール済みであること
 * JDK 17
+  * `JAVA_HOME`を環境変数に設定すること
 * git
 
 > [!TIP]
@@ -53,7 +54,7 @@ Spring-Bootで効率的なアプリケーション開発
 
 ## 使用するフレームワーク
 
-* spring-boot3.2
+* spring-boot3.4
 * spring-boot-starter-web
 * spring-boot-devtools
 * thymeleaf
