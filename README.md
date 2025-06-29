@@ -38,9 +38,9 @@ Spring-Bootで効率的なアプリケーション開発
 ## 前提環境
 
 以下がインストール済みであること
-* JDK 17
+* JDK 21
   * `JAVA_HOME`を環境変数に設定すること
-* git
+* GitBash
 
 > [!TIP]
 > Java環境構築(Windows版)　JDKインストール  
