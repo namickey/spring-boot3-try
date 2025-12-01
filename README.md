@@ -54,7 +54,7 @@ Spring-Bootで効率的なアプリケーション開発
 
 ## 使用するフレームワーク
 
-* spring-boot3.4
+* spring-boot3.5
 * spring-boot-starter-web
 * spring-boot-devtools
 * thymeleaf
@@ -69,14 +69,16 @@ Spring-Bootで効率的なアプリケーション開発
 今回、起動するアプリケーションのディレクトリ階層
 ```
 C:.
+│  .gitattributes
 │  .gitignore
+│  app.png
+│  initializr.png
 │  mvnw
 │  mvnw.cmd
 │  pom.xml
 │  README.md
 ├─.mvn
 │  └─wrapper
-│          maven-wrapper.jar
 │          maven-wrapper.properties
 └─src
     ├─main
@@ -173,7 +175,7 @@ https://start.spring.io/
 
 2. 統合開発環境を使って、今動かしたソースコードと同じものを実装し、動作確認する
 > [!TIP]
-> 統合開発環境（vscode、eclipse、intelliJ）を使おう  
+> 統合開発環境（vscode、eclipse、intelliJ）を使おう。標準的なvscodeを使う。  
 >   * vscode：おススメ、最新、軽量  
 >   * eclipse：古き重き友人  
 >   * intelliJ：おススメだが、`spring-boot-devtools`の自動デプロイ機能と相性が悪い。intelliJは入力する度にファイル保存されてしまうから。  
